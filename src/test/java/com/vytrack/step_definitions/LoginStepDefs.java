@@ -3,6 +3,7 @@ package com.vytrack.step_definitions;
 import com.vytrack.pages.LoginPage;
 import com.vytrack.utilities.BrowserUtils;
 import com.vytrack.utilities.ConfigurationReader;
+import com.vytrack.utilities.DBUtils;
 import com.vytrack.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,6 +11,9 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import java.util.List;
+import java.util.Map;
 
 public class LoginStepDefs {
     @Given("the user is on the login page")
@@ -71,10 +75,28 @@ public class LoginStepDefs {
     }
 
 
+    @Then("user can access the database")
+    public void userCanAccessTheDatabase() {
+
+        String query="select first_name,last_name,id from orocrm_contact\n" +
+                "where last_name='Smith'";
+
+        Map<String, Object> rowMap = DBUtils.getRowMap(query);
+
+        System.out.println("rowMap = " + rowMap);
 
 
+        // to get all the results in list as a map
+       /* List<Map<String, Object>> queryResultMap = DBUtils.getQueryResultMap(query);
+
+        for (Map<String, Object> each : queryResultMap) {
+
+            System.out.println("each = " + each);
 
 
+        }
 
 
+        */
+    }
 }

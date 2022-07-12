@@ -89,6 +89,9 @@ Feature: Contacts page
     |jakop@gmail.com|
     |oscar@gmail.com  |
 
+  @wipmehmet @db
+  Scenario: to test
+    Then user can access the database
 
 
 

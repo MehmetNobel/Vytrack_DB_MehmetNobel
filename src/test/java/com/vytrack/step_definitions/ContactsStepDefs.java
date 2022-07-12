@@ -130,6 +130,10 @@ public class ContactsStepDefs {
                 "on c.id = e.owner_id \n" +
                 "where e.email = '"+email+"'";
 
+        //2.query to get the ones that starting with A.
+        String query2="select first_name from orocrm_contact\n" +
+                "where first_name like 'A%'";
+
         //create the connection to qa3 env
         // DBUtils.createConnection();
         //get the data in java collections
@@ -139,6 +143,25 @@ public class ContactsStepDefs {
 
         System.out.println("expectedFullname = " + expectedFullname);
         System.out.println("expectedEmail = " + expectedEmail);
+
+        Map<String, Object> rowMap2 = DBUtils.getRowMap(query2);
+
+        System.out.println("rowMap2 = " + rowMap2);
+
+        List<Map<String, Object>> queryResultMap = DBUtils.getQueryResultMap(query2);
+
+        for (Map<String, Object> each : queryResultMap) {
+
+            System.out.println("each.values() = " + each.values());
+
+        }
+
+        for (Map<String, Object> each : queryResultMap) {
+
+            System.out.println("each = " + each);
+        }
+
+
         //close connection
         // DBUtils.destroy();
 
