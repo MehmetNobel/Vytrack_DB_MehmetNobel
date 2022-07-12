@@ -81,22 +81,19 @@ public class LoginStepDefs {
         String query="select first_name,last_name,id from orocrm_contact\n" +
                 "where last_name='Smith'";
 
-        Map<String, Object> rowMap = DBUtils.getRowMap(query);
+        //Map<String, Object> rowMap = DBUtils.getRowMap(query);
 
-        System.out.println("rowMap = " + rowMap);
+        //System.out.println("rowMap = " + rowMap);
 
 
         // to get all the results in list as a map
-       /* List<Map<String, Object>> queryResultMap = DBUtils.getQueryResultMap(query);
+       List<Map<String, Object>> queryResultMap = DBUtils.getQueryResultMap(query);
 
         for (Map<String, Object> each : queryResultMap) {
 
             System.out.println("each = " + each);
 
-
         }
 
-
-        */
     }
 }
