@@ -85,8 +85,8 @@ public class LoginStepDefs {
 
         //System.out.println("rowMap = " + rowMap);
 
-
         // to get all the results in list as a map
+
        List<Map<String, Object>> queryResultMap = DBUtils.getQueryResultMap(query);
 
         for (Map<String, Object> each : queryResultMap) {
